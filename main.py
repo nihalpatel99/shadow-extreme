@@ -9,7 +9,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
 def get_report(input_prompt,image):
-    model=genai.GenerativeModel("gemini-pro-vision")
+    model=genai.GenerativeModel("gemini-1.5-flash")
     response=model.generate_content([input_prompt, image[0]])
     return response.text
 
@@ -29,7 +29,7 @@ def aircraft_image(uploaded_file):
         raise FileNotFoundError("No file uploaded")
 
 def get_gemini_response(aircraft_prompt,question):
-    model=genai.GenerativeModel("gemini-pro")
+    model=genai.GenerativeModel("gemini-1.5-flash")
     response = model.generate_content([aircraft_prompt,question])
     return response.text
 
